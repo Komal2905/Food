@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>kRating</key>
+	<array/>
+	<key>Good</key>
+	<string></string>
+	<key>kRestaurantName</key>
+	<array/>
+	<key>Plizza Place</key>
+	<string></string>
+	<key>kFoodName</key>
+	<array/>
+	<key>Pizza</key>
+	<string></string>
+</dict>
+</plist>

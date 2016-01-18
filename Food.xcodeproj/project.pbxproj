@@ -7,25 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5D67AC1C2BAE0B00FEA80F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5D67AB1C2BAE0B00FEA80F /* UIKit.framework */; };
+		0A5D67AE1C2BAE1300FEA80F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5D67AD1C2BAE1300FEA80F /* Foundation.framework */; };
+		0A5D67B01C2BAE1E00FEA80F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5D67AF1C2BAE1E00FEA80F /* CoreGraphics.framework */; };
+		0AB03BF71C2FD2040019089D /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB03BF61C2FD2040019089D /* Storyboard.storyboard */; };
+		0ABB10B71C3133E500BA5B04 /* latte.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0ABB10B61C3133E500BA5B04 /* latte.jpg */; };
+		0AD8EB4D1C30F3C400C1FE4C /* A.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8EB4C1C30F3C400C1FE4C /* A.plist */; };
 		0AEE6ED61C2986FC00D1DB76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6ED51C2986FC00D1DB76 /* main.m */; };
 		0AEE6ED91C2986FC00D1DB76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6ED81C2986FC00D1DB76 /* AppDelegate.m */; };
-		0AEE6EDC1C2986FC00D1DB76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6EDB1C2986FC00D1DB76 /* ViewController.m */; };
 		0AEE6EDF1C2986FC00D1DB76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEE6EDD1C2986FC00D1DB76 /* Main.storyboard */; };
 		0AEE6EE11C2986FC00D1DB76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEE6EE01C2986FC00D1DB76 /* Assets.xcassets */; };
 		0AEE6EE41C2986FC00D1DB76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEE6EE21C2986FC00D1DB76 /* LaunchScreen.storyboard */; };
+		0AEE6EEF1C298BAB00D1DB76 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6EEE1C298BAB00D1DB76 /* TableViewController.m */; };
+		0AF4B3311C2A592800ACDD4B /* AddFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4B3301C2A592800ACDD4B /* AddFoodViewController.m */; };
+		0AF4B3341C2A9A2800ACDD4B /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4B3331C2A9A2800ACDD4B /* DetailVC.m */; };
+		0AF4B3361C2AC37800ACDD4B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF4B3351C2AC37800ACDD4B /* CoreLocation.framework */; };
+		0AF4B3381C2AD77E00ACDD4B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF4B3371C2AD77E00ACDD4B /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A5D67AB1C2BAE0B00FEA80F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0A5D67AD1C2BAE1300FEA80F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0A5D67AF1C2BAE1E00FEA80F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0AB03BF61C2FD2040019089D /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		0ABB10B61C3133E500BA5B04 /* latte.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = latte.jpg; path = "../../../../../Downloads/coffee-images/latte.jpg"; sourceTree = "<group>"; };
+		0AD8EB4C1C30F3C400C1FE4C /* A.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = A.plist; sourceTree = "<group>"; };
 		0AEE6ED11C2986FC00D1DB76 /* Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Food.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE6ED51C2986FC00D1DB76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AEE6ED71C2986FC00D1DB76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0AEE6ED81C2986FC00D1DB76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0AEE6EDA1C2986FC00D1DB76 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0AEE6EDB1C2986FC00D1DB76 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0AEE6EDE1C2986FC00D1DB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AEE6EE01C2986FC00D1DB76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AEE6EE31C2986FC00D1DB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AEE6EE51C2986FC00D1DB76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AEE6EED1C298BAB00D1DB76 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = ../TableViewController.h; sourceTree = "<group>"; };
+		0AEE6EEE1C298BAB00D1DB76 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = ../TableViewController.m; sourceTree = "<group>"; };
+		0AF4B32F1C2A592800ACDD4B /* AddFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFoodViewController.h; sourceTree = "<group>"; };
+		0AF4B3301C2A592800ACDD4B /* AddFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFoodViewController.m; sourceTree = "<group>"; };
+		0AF4B3321C2A9A2800ACDD4B /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
+		0AF4B3331C2A9A2800ACDD4B /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
+		0AF4B3351C2AC37800ACDD4B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0AF4B3371C2AD77E00ACDD4B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +55,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5D67B01C2BAE1E00FEA80F /* CoreGraphics.framework in Frameworks */,
+				0A5D67AE1C2BAE1300FEA80F /* Foundation.framework in Frameworks */,
+				0A5D67AC1C2BAE0B00FEA80F /* UIKit.framework in Frameworks */,
+				0AF4B3381C2AD77E00ACDD4B /* MapKit.framework in Frameworks */,
+				0AF4B3361C2AC37800ACDD4B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +69,7 @@
 		0AEE6EC81C2986FC00D1DB76 = {
 			isa = PBXGroup;
 			children = (
+				0AD8EB4C1C30F3C400C1FE4C /* A.plist */,
 				0AEE6ED31C2986FC00D1DB76 /* Food */,
 				0AEE6ED21C2986FC00D1DB76 /* Products */,
 			);
@@ -58,11 +86,22 @@
 		0AEE6ED31C2986FC00D1DB76 /* Food */ = {
 			isa = PBXGroup;
 			children = (
+				0ABB10B61C3133E500BA5B04 /* latte.jpg */,
+				0A5D67AF1C2BAE1E00FEA80F /* CoreGraphics.framework */,
+				0A5D67AD1C2BAE1300FEA80F /* Foundation.framework */,
+				0AF4B3371C2AD77E00ACDD4B /* MapKit.framework */,
+				0AF4B3351C2AC37800ACDD4B /* CoreLocation.framework */,
+				0A5D67AB1C2BAE0B00FEA80F /* UIKit.framework */,
+				0AEE6EED1C298BAB00D1DB76 /* TableViewController.h */,
+				0AEE6EEE1C298BAB00D1DB76 /* TableViewController.m */,
 				0AEE6ED71C2986FC00D1DB76 /* AppDelegate.h */,
+				0AF4B3321C2A9A2800ACDD4B /* DetailVC.h */,
+				0AF4B3331C2A9A2800ACDD4B /* DetailVC.m */,
 				0AEE6ED81C2986FC00D1DB76 /* AppDelegate.m */,
-				0AEE6EDA1C2986FC00D1DB76 /* ViewController.h */,
-				0AEE6EDB1C2986FC00D1DB76 /* ViewController.m */,
 				0AEE6EDD1C2986FC00D1DB76 /* Main.storyboard */,
+				0AB03BF61C2FD2040019089D /* Storyboard.storyboard */,
+				0AF4B32F1C2A592800ACDD4B /* AddFoodViewController.h */,
+				0AF4B3301C2A592800ACDD4B /* AddFoodViewController.m */,
 				0AEE6EE01C2986FC00D1DB76 /* Assets.xcassets */,
 				0AEE6EE21C2986FC00D1DB76 /* LaunchScreen.storyboard */,
 				0AEE6EE51C2986FC00D1DB76 /* Info.plist */,
@@ -137,8 +176,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AEE6EE41C2986FC00D1DB76 /* LaunchScreen.storyboard in Resources */,
+				0AD8EB4D1C30F3C400C1FE4C /* A.plist in Resources */,
+				0ABB10B71C3133E500BA5B04 /* latte.jpg in Resources */,
 				0AEE6EE11C2986FC00D1DB76 /* Assets.xcassets in Resources */,
 				0AEE6EDF1C2986FC00D1DB76 /* Main.storyboard in Resources */,
+				0AB03BF71C2FD2040019089D /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,8 +191,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AEE6EDC1C2986FC00D1DB76 /* ViewController.m in Sources */,
 				0AEE6ED91C2986FC00D1DB76 /* AppDelegate.m in Sources */,
+				0AF4B3341C2A9A2800ACDD4B /* DetailVC.m in Sources */,
+				0AEE6EEF1C298BAB00D1DB76 /* TableViewController.m in Sources */,
+				0AF4B3311C2A592800ACDD4B /* AddFoodViewController.m in Sources */,
 				0AEE6ED61C2986FC00D1DB76 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +342,7 @@
 				0AEE6EEA1C2986FC00D1DB76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
