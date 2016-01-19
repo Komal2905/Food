@@ -17,14 +17,12 @@
 //#import "AddFoodViewController.h"
 @interface TableViewController : UITableViewController
 @property (nonatomic,strong) NSMutableArray *foodArray;
-
-
 @property(nonatomic,strong) NSMutableArray *imageArray;;
 -(void)addFood:(NSDictionary *)newFood;
 -(void)saveData:(NSNotification *)notification;
 
 -(void)addImage:(NSDictionary *)newImage;
-//-(void)saveImageData:(NSNotification *)notification;
+
 
 
 @end

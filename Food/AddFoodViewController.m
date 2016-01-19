@@ -51,34 +51,25 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-   // NSLog(@"Status %d",authorizationStatus());
     
     [super viewWillAppear:animated];
-    
-    //-----Uncomment
-    
     
     if(locationManager==nil)
     {
         
-         [locationManager requestWhenInUseAuthorization];
-        
+        [locationManager requestWhenInUseAuthorization];
         locationManager=[[CLLocationManager alloc]init];
         locationManager.delegate=self;
         [locationManager requestWhenInUseAuthorization];
 
-      //[locationManager requestWhenInUseAuthorization];//SO ImP
-        
-       
-        locationManager.desiredAccuracy=kCLLocationAccuracyKilometer;
-        //locationManager.significantLocationChangeMonitoringAvailable=kCLLocationAccuracyKilometer;
+      //[locationManager requestWhenInUseAuthorization];//SO Imp
+       locationManager.desiredAccuracy=kCLLocationAccuracyKilometer;
+      //locationManager.significantLocationChangeMonitoringAvailable=kCLLocationAccuracyKilometer;
         locationManager.pausesLocationUpdatesAutomatically=NO;
         locationManager.activityType=CLActivityTypeFitness;
-        
         //locationManager.purpose=@"location is set for lacation of restaurarnt";
         
     }
-    
 
     [locationManager startUpdatingLocation];
     [activityIndicator startAnimating];
@@ -86,12 +77,11 @@
 }
 #pragma mark-location manager delegate method
 //If have any error change this method
+// For updating Location
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     [activityIndicator stopAnimating];
     locationLable.text=@"location received";
-
-    
 }
 
 
@@ -110,17 +100,12 @@
     
     NSString *newFoodName=[foodTextField text];
     NSString *newRestaurantName=[RestaurantTextField text];
-    
-    //UIImage *someImage=[imageView image];//review
-     UIImage *someImage=[UIImage imageNamed:@"latte.jpg"];
+    UIImage *someImage=[UIImage imageNamed:@"latte.jpg"];
     NSLog(@"some imAGE  %@",someImage);
     
     NSData *imageData = UIImagePNGRepresentation(someImage);
-   // NSLog(@"NSDATA ImageData %@",imageData);
-   // [imageArray addObject:data];
-    //[imageArray writeToFile:plistPath atomically:YES];
+    NSString *rating=@"Ok";
     
-    NSString *rating=@"ok";
     if([ratingController selectedSegmentIndex]==0)
     {
        rating=@"Good";
@@ -144,51 +129,21 @@
     NSDictionary *newFood=[[NSDictionary alloc]initWithObjectsAndKeys:newFoodName,kFoodName,newRestaurantName,kRestaurantName,rating,kRating,latitudeNumber ,kLatitude,longitudeNumber ,kLongitude,storedImage,aKeyForYourImage,nil];
     NSDictionary *newImage=[[NSDictionary alloc]initWithObjectsAndKeys:imageData,aKeyForYourImage,nil];
     //
-    
-    
-    
+
     [foodTableViewController addFood :newFood];
-    
     
     [foodTableViewController addImage:newImage];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil] ;
      
      }
 
-
-
-
-
-
 - (IBAction)AddImage:(id)sender {
-    
-    
-//    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:1];
-//    UIImage *img = [UIImage imageNamed:@"latte.jpg"];
-//    [dict setObject:img forKey:@"aKeyForYourImage"];
-//    
-//    UIImage *imgAgain = [dict objectForKey:@"aKeyForYourImage"];
-//    UIImageView *newImageView1=[[UIImageView alloc]initWithImage:imgAgain];
-//        [newImageView1 setFrame:CGRectMake(80,80, 80, 80)];
-//    
-//       // [self dismissViewControllerAnimated:YES completion:^{
-//    
-//            [imageView addSubview:newImageView1];
-//            NSLog(@"A");
-//        //}];
-//    
-//    //[NSKeyedArchiver archiveRootObject:dict toFile:@"/Users/BridgeLabz/Library/Developer/CoreSimulator/Devices/39CF1665-25B2-462D-A0CB-1437928173E5/data/Containers/Data/Application/A8AB364D-DC50-41C4-B02E-C92CD4F5BB0D/Documents/imageInfo.plist"];
 
-    
-    
-    
     UIImagePickerController *imagePicker=[[UIImagePickerController alloc]init];
     [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [imagePicker setDelegate:self];
     [self presentViewController:imagePicker animated:YES completion:NULL];
 
-    NSLog(@"After");
-    
     
 //    UIImageView *newImageView1=[[UIImageView alloc]initWithImage:new];
 //    [newImageView1 setFrame:CGRectMake(80,80, 80, 80)];
@@ -213,30 +168,27 @@
 
     [self dismissViewControllerAnimated:YES completion:^{
        
-       [imageView addSubview:newImageView];
+    [imageView addSubview:newImageView];
         
-        storedImage=[newImageView image];
+    storedImage=[newImageView image];
 
             }];
     
     
     
     
-    //--
-      //--
-//  NSLog(@"After");
+//
+//  UIImage *image=[UIImage imageNamed:@"latte"];
 //    
-//       UIImage *image=[UIImage imageNamed:@"latte"];
+//  NSData *imageData = UIImagePNGRepresentation(image);
+//  UIImage *new=[UIImage imageWithData:imageData];
+//  UIImageView *newImageView1=[[UIImageView alloc]initWithImage:new];
+//  [newImageView1 setFrame:CGRectMake(80,80, 80, 80)];
 //    
-//      NSData *imageData = UIImagePNGRepresentation(image);
-//    UIImage *new=[UIImage imageWithData:imageData];
-//    UIImageView *newImageView1=[[UIImageView alloc]initWithImage:new];
-//    [newImageView1 setFrame:CGRectMake(80,80, 80, 80)];
-//    
-//    [self dismissViewControllerAnimated:YES completion:^{
+//  [self dismissViewControllerAnimated:YES completion:^{
 //        
-//        [imageView addSubview:newImageView1];
-//        NSLog(@"A");
+//  [imageView addSubview:newImageView1];
+//   NSLog(@"A");
 //    }];
 
 }

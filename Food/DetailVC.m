@@ -35,18 +35,20 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+//setting Lable
     [foodLable setText:[food objectForKey:kFoodName]];
     [restaurantLable setText:[food objectForKey:kRestaurantName]];
     NSString *foodRatin=[food objectForKey:kRating];
     NSString *foodRatingStatement=[[NSString alloc]initWithFormat:@"The food is %@ ",foodRatin];
     [ratingLable setText:foodRatingStatement];
+//setting Image
     UIImage *imgAgain = [imageA objectForKey:aKeyForYourImage];
     
     UIImageView *newImageView1=[[UIImageView alloc]initWithImage:imgAgain];
     [newImageView1 setFrame:CGRectMake(80,80, 80, 80)];
     //[getImageView image]=[imageA objectForKey:@"aKeyForYourImage"];
     [getImageView addSubview:newImageView1];
-
+// FOr mapView
     NSNumber *latitude=[food objectForKey:kLatitude];
     NSNumber *longitude=[food objectForKey:kLongitude];
     MKCoordinateRegion region;

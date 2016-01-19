@@ -19,17 +19,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(saveData:) name:UIApplicationDidEnterBackgroundNotification  object:nil];
     
     
     NSString *homeDirectory=NSHomeDirectory();
-   NSString *filePath=[homeDirectory stringByAppendingString:@"/Documents/food.plist"];
-   // NSString *imageFilePath=@"/Users/BridgeLabz/Documents/komal/IOS";
+    NSString *filePath=[homeDirectory stringByAppendingString:@"/Documents/food.plist"];
+   
     NSString *imageFilePath=[homeDirectory stringByAppendingString:@"/Documents/imageInfo.plist"];
     NSLog(@"FIle Path %@", filePath);
     NSLog(@"Image Info %@",imageFilePath);
     
-    
+    // For checking whether file is exists or not ; if Exists then intialize array with its content
     if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
     {
         foodArray=[[NSMutableArray alloc]initWithContentsOfFile:filePath ];
@@ -41,13 +42,12 @@
     NSDictionary *firstFoodDictionary=[[NSDictionary alloc]initWithObjectsAndKeys:@"Pizza",kFoodName,@"Pizza Place",kRestaurantName,@"good",kRating,nil];
     //foodArray=[[NSMutableArray alloc]initWithObjects:@"Pizza",@"Sandwiches",@"Hot Dog",@"Bacon", nil];
     foodArray=[[NSMutableArray alloc]initWithObjects:firstFoodDictionary, nil];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+  
+     self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   
     }
-    //---FOr Image
+    //---For Image
     if([[NSFileManager defaultManager] fileExistsAtPath:imageFilePath])
     {
         imageArray=[[NSMutableArray alloc]initWithContentsOfFile:imageFilePath ];
@@ -59,12 +59,9 @@
         NSDictionary *firstImageDictionary=[[NSDictionary alloc]initWithObjectsAndKeys:@"Image",aKeyForYourImage,nil];
         //foodArray=[[NSMutableArray alloc]initWithObjects:@"Pizza",@"Sandwiches",@"Hot Dog",@"Bacon", nil];
         imageArray=[[NSMutableArray alloc]initWithObjects:firstImageDictionary, nil];
-         //NSLog(@"Image List here in esle  %@",imageArray);
-        // Uncomment the following line to preserve selection between presentations.
-        // self.clearsSelectionOnViewWillAppear = NO;
-        
+        self.clearsSelectionOnViewWillAppear = NO;
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+         self.navigationItem.rightBarButtonItem = self.editButtonItem;
     }
 
     
@@ -82,16 +79,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-   // NSLog(@"Array %@",[foodArray objectAtIndex:2]);
+   
     NSLog(@"Array count %lu",(unsigned long)[foodArray count]);
    return [foodArray count];
-    //return 2 ;
+    
  
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    
     if([[segue identifier]isEqualToString:@"AddFoodSegue"])
     {
     AddFoodViewController *addFoodViewController=[segue destinationViewController];
@@ -101,7 +96,7 @@
     {
         NSIndexPath *selectedRow=[[self tableView] indexPathForSelectedRow];
         NSDictionary *selectedFood=[foodArray objectAtIndex:[selectedRow row]];
-      DetailVC  *detailVc=[segue destinationViewController];
+        DetailVC  *detailVc=[segue destinationViewController];
         [detailVc setFood:selectedFood];
         
     }
@@ -147,34 +142,33 @@
 
 }
 
-
-//-(void)saveImageData:(NSNotification *)notification;
-//{
-//    
-//    NSLog(@"Save Data");
-//    NSString *homeDirectory=NSHomeDirectory();
-//    NSLog(@"HOme%@", homeDirectory);
-//    NSString *filePath=[homeDirectory stringByAppendingString:@"/Documents/food.plist"];
-//    NSLog(@"Save Data %@",filePath);
-//    NSString *imageFilePath=[homeDirectory stringByAppendingString:@"/Documents/imageInfo.plist"];
-//    [foodArray writeToFile:filePath atomically:YES];
-//    [imageArray writeToFile:imageFilePath atomically:YES];
-//    
-//}
+/*
+-(void)saveImageData:(NSNotification *)notification;
+{
+    
+    NSLog(@"Save Data");
+    NSString *homeDirectory=NSHomeDirectory();
+    NSLog(@"HOme%@", homeDirectory);
+    NSString *filePath=[homeDirectory stringByAppendingString:@"/Documents/food.plist"];
+    NSLog(@"Save Data %@",filePath);
+    NSString *imageFilePath=[homeDirectory stringByAppendingString:@"/Documents/imageInfo.plist"];
+    [foodArray writeToFile:filePath atomically:YES];
+    [imageArray writeToFile:imageFilePath atomically:YES];
+    
+}
+*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *cellIndetifier=@"BasicCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndetifier forIndexPath:indexPath];
     
     int rowNumber=[indexPath row];
-    
     NSDictionary *foodDictionary=[foodArray objectAtIndex:rowNumber];
     NSString *food=[foodDictionary objectForKey:kFoodName];
     NSString *restaurant=[foodDictionary objectForKey:kRestaurantName];
     
   //  NSDictionary *imageDictionary=[foodArray objectAtIndex:rowNumber];
-    
-    
    // NSString *food=[foodArray objectAtIndex:rowNumber];
     [[cell textLabel] setText:food];
     [[cell detailTextLabel] setText:restaurant];
@@ -182,12 +176,12 @@
     if(cell ==nil)
    {
      cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndetifier];
-  }
-//
-//    // Configure the cell...
+   }
+
+   // Configure the cell...
     
     cell.imageView.image=[foodDictionary objectForKey:aKeyForYourImage];
-//    
+    
    return cell;
 }
 
