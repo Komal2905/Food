@@ -1,4 +1,8 @@
 
-this project is created by using Objective c. It uses various object such as TableView, MapView, navigation Control.
-it also uses Segue
+This project is build using Objective C. It store information about restaurant and there location.
+It uses various control such as TableView Control, Navigation Control, MapView.
+Food name and its Restaurant is stored in TableView in TableViewController file.
+when user want detail of particular restaurant, user cant click on tableViewCell and able to see its review and map
+User also can add new food, restaurant and review by clicking add Button.
+
 
