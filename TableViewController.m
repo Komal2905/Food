@@ -86,6 +86,50 @@
  
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellIndetifier=@"BasicCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndetifier forIndexPath:indexPath];
+    
+    int rowNumber=[indexPath row];
+    NSDictionary *foodDictionary=[foodArray objectAtIndex:rowNumber];
+    NSString *food=[foodDictionary objectForKey:kFoodName];
+    NSString *restaurant=[foodDictionary objectForKey:kRestaurantName];
+    
+    
+    [[cell textLabel] setText:food];
+    [[cell detailTextLabel] setText:restaurant];
+    NSLog(@"table view is asking for cell %d",[indexPath row]);
+    if(cell ==nil)
+    {
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndetifier];
+    }
+    
+    // Configure the cell...
+    
+    cell.imageView.image=[foodDictionary objectForKey:aKeyForYourImage];
+    
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [foodArray removeObjectAtIndex:[indexPath row]];
+    
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:
+         UITableViewRowAnimationFade];
+        
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+
+
+
 // when user click on ADD Button or click on Cell , segue define which view to display
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -140,36 +184,10 @@
     NSLog(@"Image %@",imageArray);
    
 
-    
 }
 
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *cellIndetifier=@"BasicCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndetifier forIndexPath:indexPath];
-    
-    int rowNumber=[indexPath row];
-    NSDictionary *foodDictionary=[foodArray objectAtIndex:rowNumber];
-    NSString *food=[foodDictionary objectForKey:kFoodName];
-    NSString *restaurant=[foodDictionary objectForKey:kRestaurantName];
-    
-  
-    [[cell textLabel] setText:food];
-    [[cell detailTextLabel] setText:restaurant];
-    NSLog(@"table view is asking for cell %d",[indexPath row]);
-    if(cell ==nil)
-   {
-     cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndetifier];
-   }
-
-   // Configure the cell...
-    
-    cell.imageView.image=[foodDictionary objectForKey:aKeyForYourImage];
-    
-   return cell;
-}
 
 
 
