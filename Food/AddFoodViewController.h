@@ -5,7 +5,6 @@
 //  Created by Vidya Ramamurthy on 23/12/15.
 //  Copyright © 2015 BridgeLabz. All rights reserved.
 //
-
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "TableViewController.h"
@@ -33,5 +32,6 @@
 
 - (IBAction)show:(id)sender;
 @property UIImage *storedImage;
-//@property (nonatomic, strong) NSMutableArray *imageArray;
+
+
 @end

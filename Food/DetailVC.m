@@ -20,10 +20,10 @@
 @synthesize mapView;
 @synthesize getImageView;
 @synthesize imageA;
-//@synthesize imageArray;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,33 +41,24 @@
     NSString *foodRatin=[food objectForKey:kRating];
     NSString *foodRatingStatement=[[NSString alloc]initWithFormat:@"The food is %@ ",foodRatin];
     [ratingLable setText:foodRatingStatement];
+    
 //setting Image
     UIImage *imgAgain = [imageA objectForKey:aKeyForYourImage];
-    
     UIImageView *newImageView1=[[UIImageView alloc]initWithImage:imgAgain];
     [newImageView1 setFrame:CGRectMake(80,80, 80, 80)];
-    //[getImageView image]=[imageA objectForKey:@"aKeyForYourImage"];
     [getImageView addSubview:newImageView1];
-// FOr mapView
+    getImageView.image=[food objectForKey:aKeyForYourImage];
+// For mapView
     NSNumber *latitude=[food objectForKey:kLatitude];
     NSNumber *longitude=[food objectForKey:kLongitude];
     MKCoordinateRegion region;
     region.span= MKCoordinateSpanMake(0.02, 0.02);
     region.center=CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
     [mapView setRegion:region];
-    
-    getImageView.image=[food objectForKey:aKeyForYourImage];
+  
     
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 

@@ -17,10 +17,7 @@
 @property (nonatomic, strong) NSDictionary *imageA;
 @property (weak, nonatomic) IBOutlet UIImageView *getImageView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
 @property (weak, nonatomic) IBOutlet UILabel *ratingLable;
-
-//@property (nonatomic, strong) NSMutableArray *imageArray;
 
 
 @end

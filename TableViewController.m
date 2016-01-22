@@ -22,45 +22,43 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(saveData:) name:UIApplicationDidEnterBackgroundNotification  object:nil];
     
-    
+// Getting Home Directory
     NSString *homeDirectory=NSHomeDirectory();
     NSString *filePath=[homeDirectory stringByAppendingString:@"/Documents/food.plist"];
    
     NSString *imageFilePath=[homeDirectory stringByAppendingString:@"/Documents/imageInfo.plist"];
-    NSLog(@"FIle Path %@", filePath);
+    NSLog(@"File Path %@", filePath);
     NSLog(@"Image Info %@",imageFilePath);
     
-    // For checking whether file is exists or not ; if Exists then intialize array with its content
+// For checking whether file is exists or not ; if Exists then intialize foodArray with its content
     if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
     {
         foodArray=[[NSMutableArray alloc]initWithContentsOfFile:filePath ];
-        NSLog(@"Plist here %@",foodArray);
+       
     }
     else
     {
-    
+// if file not exist then create new dictionary, intialize its data
     NSDictionary *firstFoodDictionary=[[NSDictionary alloc]initWithObjectsAndKeys:@"Pizza",kFoodName,@"Pizza Place",kRestaurantName,@"good",kRating,nil];
-    //foodArray=[[NSMutableArray alloc]initWithObjects:@"Pizza",@"Sandwiches",@"Hot Dog",@"Bacon", nil];
+    
+        
+// intialize foodArray with content of dictionary
     foodArray=[[NSMutableArray alloc]initWithObjects:firstFoodDictionary, nil];
   
      self.clearsSelectionOnViewWillAppear = NO;
-    
-   
     }
-    //---For Image
+//---For Image
     if([[NSFileManager defaultManager] fileExistsAtPath:imageFilePath])
     {
         imageArray=[[NSMutableArray alloc]initWithContentsOfFile:imageFilePath ];
-       // NSLog(@"Image List here in if  %@",imageArray);
+      
     }
     else
     {
-        
         NSDictionary *firstImageDictionary=[[NSDictionary alloc]initWithObjectsAndKeys:@"Image",aKeyForYourImage,nil];
-        //foodArray=[[NSMutableArray alloc]initWithObjects:@"Pizza",@"Sandwiches",@"Hot Dog",@"Bacon", nil];
-        imageArray=[[NSMutableArray alloc]initWithObjects:firstImageDictionary, nil];
+                imageArray=[[NSMutableArray alloc]initWithObjects:firstImageDictionary, nil];
         self.clearsSelectionOnViewWillAppear = NO;
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+       
          self.navigationItem.rightBarButtonItem = self.editButtonItem;
     }
 
@@ -73,6 +71,8 @@
 }
 
 #pragma mark - Table view data source
+// -- Table View
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -85,13 +85,18 @@
     
  
 }
+
+// when user click on ADD Button or click on Cell , segue define which view to display
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    // segue for Adding Foodd
     if([[segue identifier]isEqualToString:@"AddFoodSegue"])
     {
     AddFoodViewController *addFoodViewController=[segue destinationViewController];
     [addFoodViewController setFoodTableViewController:self];
     }
+    // segue for detail of food
     else if([[segue identifier]isEqualToString:@"detailSegue"])
     {
         NSIndexPath *selectedRow=[[self tableView] indexPathForSelectedRow];
@@ -103,7 +108,7 @@
        
     
 }
-
+// store user input to Array
 -(void)addFood:(NSDictionary *)newFood
 {
     [foodArray addObject:newFood];
@@ -120,43 +125,25 @@
     NSLog(@"Ading Image");
 }
 
+// notification to observer
 -(void)saveData:(NSNotification *)notification
 {
     
-    NSLog(@"Save Data");
     NSString *homeDirectory=NSHomeDirectory();
     NSLog(@"Home%@", homeDirectory);
-    NSString *filePath=[homeDirectory stringByAppendingString:@"/Documents/food.plist"];
-    NSLog(@"Save Data %@",filePath);
-     NSString *imageFilePath=[homeDirectory stringByAppendingString:@"/Documents/imageInfo.plist"];
-    // NSString *imageFilePath=@"/Users/BridgeLabz/Documents/komal/IOS";
-    [foodArray writeToFile:filePath atomically:YES];
-    [imageArray writeToFile:imageFilePath atomically:YES];
-    NSLog(@"FILE PATH%@ ",imageFilePath);
-    NSLog(@"Image %@",imageArray);
-   
-
-//    [dictionary setObject:image forKey:@"image"];
-//    [NSKeyedArchiver archiveRootObject:dictionary toFile:path];
-    
-
-}
-
-/*
--(void)saveImageData:(NSNotification *)notification;
-{
-    
-    NSLog(@"Save Data");
-    NSString *homeDirectory=NSHomeDirectory();
-    NSLog(@"HOme%@", homeDirectory);
     NSString *filePath=[homeDirectory stringByAppendingString:@"/Documents/food.plist"];
     NSLog(@"Save Data %@",filePath);
     NSString *imageFilePath=[homeDirectory stringByAppendingString:@"/Documents/imageInfo.plist"];
     [foodArray writeToFile:filePath atomically:YES];
     [imageArray writeToFile:imageFilePath atomically:YES];
+    NSLog(@"FILE PATH %@ ",imageFilePath);
+    NSLog(@"Image %@",imageArray);
+   
+
     
 }
-*/
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -168,8 +155,7 @@
     NSString *food=[foodDictionary objectForKey:kFoodName];
     NSString *restaurant=[foodDictionary objectForKey:kRestaurantName];
     
-  //  NSDictionary *imageDictionary=[foodArray objectAtIndex:rowNumber];
-   // NSString *food=[foodArray objectAtIndex:rowNumber];
+  
     [[cell textLabel] setText:food];
     [[cell detailTextLabel] setText:restaurant];
     NSLog(@"table view is asking for cell %d",[indexPath row]);
@@ -185,53 +171,7 @@
    return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        
-         [foodArray removeObjectAtIndex:[indexPath row]];
-         NSLog(@"Deleted Item");
-        
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-       
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
